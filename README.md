@@ -6,11 +6,12 @@
 | --------------------- | ------ | ----------- |
 | nickname              | string | null: false |
 | email                 | string | null: false |
-| password              | string | null: false |
-| password_confirmation | string | null: false |
-| name                  | string | null: false |
-| name_kana             | string | null: false |
-| birthday              | string | null: false |
+| encrypted_password    | string | null: false |
+| family_name           | string | null: false |
+| given_name            | string | null: false |
+| family_name_kana      | string | null: false |
+| given_name_kana       | string | null: false |
+| birthday              | date   | null: false |
 
 ### Association
 
@@ -19,17 +20,17 @@
 
 ## items テーブル
 
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| item_name     | string     | null: false                    |
-| description   | text       | null: false                    |
-| category      | string     | null: false                    |
-| item_status   | string     | null: false                    | 
-| shipping_cost | string     | null: false                    |
-| ship_from     | string     | null: false                    |
-| shipping_day  | string     | null: false                    |
-| price         | string     | null: false                    |  
-| user          | references | null: false, foreign_key: true |
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| item_name        | string     | null: false                    |
+| description      | text       | null: false                    |
+| category_id      | integer    | null: false                    |
+| item_status_id   | integer    | null: false                    | 
+| shipping_cost_id | integer    | null: false                    |
+| ship_from_id     | integer    | null: false                    |
+| shipping_day_id  | integer    | null: false                    |
+| price            | integer    | null: false                    |  
+| user             | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -54,7 +55,7 @@
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | postal_code   | string     | null: false                    |
-| prefecture    | string     | null: false                    |
+| prefecture_id | integer    | null: false                    |
 | city          | string     | null: false                    |
 | address       | string     | null: false                    | 
 | building      | string     |                                |
