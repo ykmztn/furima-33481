@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
+  belongs_to :item_status
 
   belongs_to :user
 
@@ -20,6 +21,7 @@ class Item < ApplicationRecord
 
   with_options numericality: { other_than: 1 }  do  
     validates :category_id
+    validates :item_status_id
   end
-  
+
 end
