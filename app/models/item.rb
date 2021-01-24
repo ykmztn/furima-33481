@@ -13,8 +13,8 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :item_name
     validates :description
-    validates :category_id 
-    validates :item_status_id 
+    validates :category_id
+    validates :item_status_id
     validates :shipping_cost_id
     validates :ship_from_id
     validates :shipping_day_id
@@ -22,7 +22,7 @@ class Item < ApplicationRecord
     validates :image
   end
 
-  with_options numericality: { other_than: 1 }  do  
+  with_options numericality: { other_than: 1 } do
     validates :category_id
     validates :item_status_id
     validates :shipping_cost_id
@@ -30,6 +30,6 @@ class Item < ApplicationRecord
     validates :shipping_day_id
   end
 
-    validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999},
-                      format: { with: /\A[0-9]+\z/,  message: '半角数字を使用してください'}
+  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 },
+                    format: { with: /\A[0-9]+\z/, message: '半角数字を使用してください' }
 end
