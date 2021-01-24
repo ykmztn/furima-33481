@@ -32,31 +32,31 @@ RSpec.describe Item, type: :model do
       end
 
       it '商品カテゴリーがなければ出品できない' do
-        @item.category_id = '1'
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Category must be other than 1')
       end
 
       it '商品状態がなければ出品できない' do
-        @item.item_status_id = '1'
+        @item.item_status_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Item status must be other than 1')
       end
 
       it '配送料がなければ出品できない' do
-        @item.shipping_cost_id = '1'
+        @item.shipping_cost_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Shipping cost must be other than 1')
       end
 
       it '発送元地域がなければ出品できない' do
-        @item.ship_from_id = '1'
+        @item.ship_from_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Ship from must be other than 1')
       end
 
       it '発送までの日数がなければ出品できない' do
-        @item.shipping_day_id = '1'
+        @item.shipping_day_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Shipping day must be other than 1')
       end
