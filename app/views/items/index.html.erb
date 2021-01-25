@@ -134,6 +134,9 @@
 
           <%# 商品が売れていればsold outを表示しましょう %>
           <div class='sold-out'>
+           <%# if %>
+           <%# puts sold Out!!%>
+           <%# end %>
             <span>Sold Out!!</span>
           </div>
           <%# //商品が売れていればsold outを表示しましょう %>
@@ -144,7 +147,7 @@
             <%= item.item_name %>
           </h3>
           <div class='item-price'>
-            <span><%= item.price %>円<br><%= '配送料負担' %></span>
+            <span><%= item.price %>円<br><%= item.shipping_cost.name %></span>
             <div class='star-btn'>
               <%= image_tag "star.png", class:"star-icon" %>
               <span class='star-count'>0</span>
