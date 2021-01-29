@@ -9,7 +9,7 @@ class PurchaseAddress
     validates :city
     validates :house_number
     validates :phone_number
-    validates :purchase_id
+    # validates :purchase_id
   end
 
   validates :prefecture_id, numericality: { other_than: 1 }
@@ -19,8 +19,8 @@ class PurchaseAddress
   validates :phone_number, numericality: { only_integer: true} , length: { maximum: 11 }
 
   def save
-    Purchase.create(user_id: user.id, item_id: item.id)
-    Address.create(postal_code: postal_code, prefecture_id: prefecture.id, city: city, house_number: house_number, building: building, phone_number: phone_number, purchase_id: purchase.id)
+    purchase = Purchase.create(user_id: user_id, item_id: item_id)
+    Address.create(postal_code: postal_code, prefecture_id: prefecture_id, city: city, house_number: house_number, building: building, phone_number: phone_number, purchase_id: purchase.id)
   end
 
 end

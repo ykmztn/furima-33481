@@ -12,9 +12,9 @@ class PurchasesController < ApplicationController
     @purchase_address = PurchaseAddress.new(purchase_params)
      if @purchase_address.valid?
       @purchase_address.save
-       redirect_to action: :index
+       redirect_to root_path
      else
-       redirect_to item_purchases_path
+       render :index
      end
   end
 
@@ -25,7 +25,7 @@ class PurchasesController < ApplicationController
   end
   
   def purchase_params
-  params.require(:purchase_address).permit(:user_id, :item_id, :postal_code, :prefecture_id, :city, :house_number, :building, :phone_number, :purchase_id)
+    params.require(:purchase_address).permit(:postal_code, :prefecture_id, :city, :house_number, :building, :phone_number).merge(user_id: current_user.id, item_id: @item.id)
   end
 
 end
