@@ -31,20 +31,11 @@ class PurchasesController < ApplicationController
   end
 
   def pay_item
-<<<<<<< HEAD
     Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
       amount: @item.price,
       card: purchase_params[:token],
       currency: 'jpy'
     )
-=======
-    Payjp.api_key = "sk_test_ccdf8d177dafe031cecfb64d"
-      Payjp::Charge.create(
-        amount: @item.price,
-        card: purchase_params[:token],
-        currency: 'jpy'
-      )
->>>>>>> parent of 315c26d... 環境変数設定
   end
 end
