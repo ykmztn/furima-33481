@@ -7,7 +7,7 @@ RSpec.describe PurchaseAddress, type: :model do
     end
 
     context '商品の購入ができる場合' do
-      it '全項目が入力されていれば出品できる' do
+      it '全項目（token含む）が入力されていれば購入できる' do
         expect(@purchase_address).to be_valid
       end
 
@@ -84,6 +84,13 @@ RSpec.describe PurchaseAddress, type: :model do
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include("Phone number is not a number")
       end
+
+      it 'tokenがなければ購入できない' do
+        @purchase_address.token = nil
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include("Token can't be blank")
+      end
+
 
     end
   end
