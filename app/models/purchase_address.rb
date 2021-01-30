@@ -9,7 +9,7 @@ class PurchaseAddress
     validates :city
     validates :house_number
     validates :phone_number
-    # validates :purchase_id
+    validates :token
   end
 
   validates :prefecture_id, numericality: { other_than: 1 }
