@@ -3,7 +3,8 @@ class ItemsController < ApplicationController
   before_action :item_find, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = Item.includes(:user).order('created_at DESC')
+    @items = Item.order('created_at DESC')
+    # @items = Item.includes(:user).order('created_at DESC')
   end
 
   def new
